@@ -1,9 +1,9 @@
 # AN INTRODUCTION TO ARIMA MODEL THEORY
 
-### Nội dung
-1. Giới thiệu
-2. Dự đoán - thuật toán
-3. Áp dụng auto arima xây dựng mô hình ARIMA
+[**Chi tiết bài viết**]()
+
+**Dưới đây là nội dung tóm tắt**
+
 
 ## 1. Giới thiệu
 + ARIMA (Auto Regressive Integrated Moving Average) là một lớp mô hình dự đoán phổ biến và linh hoạt sử dụng thông tin lịch sử để đưa ra dự đoán. Loại mô hình này là một kỹ thuật dự đoán cơ bản có thể được sử dụng làm nền tảng cho các mô hình phức tạp hơn.
