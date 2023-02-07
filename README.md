@@ -141,3 +141,59 @@ Gọi thư viện sử dụng: `from pmdarima import auto_arima`
 + Giá trị AIC cho phép so sánh mô hình phù hợp với dữ liệu và tính đến độ phức tạp của mô hình, vì vậy các mô hình phù hợp hơn trong khi sử dụng ít tính năng hơn sẽ nhận được điểm AIC tốt hơn (thấp hơn) các mô hình tương tự sử dụng nhiều tính năng hơn.
 + Thư viện ARIMA cho phép ta nhanh chóng thực hiện Grid Search và tạo ra một model object mà ta có thể fit training data.
 + Thư này này chứa auto arima function cho phép chúng ta thiết lập một loạt các giá trị p, d, q, P, D< Q và m; sau đó phù hợp với các mô hình cho tất cả các kết hợp có thể. Sau đó, mô hình sẽ giữ kết hợp có trị AIC tốt nhất.
+
+## Tổng kết:
+**1. Phân tích chuỗi thời gian là gì?**
++ Chuỗi thời gian là một chuỗi các quan sát được thực hiện trong các khoảng thời gian xác định, thường là các khoảng thời gian bằng nhau. Phân tích chuỗi giúp chúng ta dự đoán các giá trị trong tương lai dựa trên các giá trị được quan sát trước đó. Trong Chuỗi thời gian, chúng tôi chỉ có 2 biến, thời gian và biến chúng tôi muốn dự báo.
+
+**2. Tại sao và ở đâu thì Chuỗi thời gian được sử dụng?**
++ Dữ liệu chuỗi thời gian có thể được phân tích để trích xuất các số liệu thống kê có ý nghĩa và các đặc điểm khác. Nó được sử dụng trong ít nhất 4 kịch bản:
+    + a) Dự báo kinh doanh.
+    + b) Hiểu hành vi trong quá khứ.
+    + c) Hoạch định tương lai.
+    + d) Đánh giá thành tích hiện tại.
+    
+**3. Khi nào chúng ta không nên sử dụng Phân tích chuỗi thời gian?**
++ Chúng ta không cần áp dụng Chuỗi thời gian trong ít nhất 2 trường hợp sau:
+    + a) Biến phụ thuộc (y) (được cho là thay đổi theo thời gian) là hằng số. Phương trình: y=f(x)=4, một đường thẳng song song với trục x(thời gian) sẽ luôn giữ nguyên.
+    + b) Biến phụ thuộc (y) đại diện cho các giá trị có thể được biểu thị dưới dạng hàm toán học. Eq: sin(x), log(x), Đa thức, v.v. Do đó, chúng ta có thể trực tiếp nhận giá trị tại một số thời điểm bằng cách sử dụng chính hàm đó. Không cần dự báo.
+    
+**4. Các thành phần của Chuỗi thời gian là gì?**
++ Có 4 thành phần:
+    + a) Xu hướng (Trend) - Chuyển động lên và xuống của dữ liệu theo thời gian trong một khoảng thời gian lớn. Eq: Đánh giá cao của Dollar so với rupee.
+    + b) Tính thời vụ (Seasonality) - phương sai theo mùa. Eq: Doanh số bán kem chỉ tăng trong mùa hè.
+    + c) Nhiễu hoặc bất thường (Noise or Irregularity) - Các đỉnh và đáy ở các khoảng thời gian ngẫu nhiên.
+    + d) Chu kỳ (Cyclicity) - hành vi tự lặp lại sau một khoảng thời gian dài, như tháng, năm, v.v.
+    
+**5. Tính dừng (Stationarity) là gì?**
++ Trước khi áp dụng bất kỳ mô hình thống kê nào trên Chuỗi thời gian, chuỗi phải ổn định, có nghĩa là, trong các khoảng thời gian khác nhau,
+    + a) Nó phải có giá trị trung bình không đổi.
+    + b) Nó phải có phương sai hoặc độ lệch chuẩn không đổi.
+    + c) Hiệp phương sai không nên phụ thuộc vào thời gian.
+
+Xu hướng & Tính thời vụ là hai lý do khiến Chuỗi thời gian không ổn định & do đó cần phải được điều chỉnh.
+
+**6. Tại sao Chuỗi thời gian (TS) cần phải dừng?**
++ Đó là vì những lý do sau:
+    + a) Nếu một TS có một hành vi cụ thể trong một khoảng thời gian, thì có khả năng cao là trong một khoảng thời gian khác, nó sẽ có hành vi tương tự, với điều kiện TS là tĩnh. Điều này giúp dự báo chính xác.
+    + b) b) Các lý thuyết & công thức toán học hoàn thiện hơn & dễ áp dụng hơn cho TS tĩnh.
+    
+**7. Các phép thử để kiểm tra xem một chuỗi có đứng yên hay không**
++ Có 2 cách để kiểm tra tính dừng của TS:
+    + a) Rolling Statistics - Vẽ đồ thị trung bình động hoặc độ lệch chuẩn động (Plot the moving avg or moving standard deviation) để xem liệu nó có thay đổi theo thời gian hay không. Đó là một kỹ thuật hình ảnh.
+    + b) ADCF Test - Augmented Dickey–Fuller test được sử dụng để cung cấp cho chúng ta các giá trị khác nhau có thể giúp xác định tính dừng. Giả thuyết Null nói rằng một TS là không cố định. Nó bao gồm Test Statistics & một số giá trị quan trọng đối với một số mức độ tin cậy. Nếu Test Statistics nhỏ hơn các giá trị tới hạn, chúng ta có thể bác bỏ giả thuyết không và nói rằng chuỗi này là dừng. Thử nghiệm ADCF cũng cho chúng ta giá trị p. Theo giả thuyết không, giá trị thấp hơn của p là tốt hơn.
+    
+**8. Mô hình ARIMA là gì?**
++ ARIMA(Auto Regressive Integrated Moving Average) là sự kết hợp của 2 mô hình AR(Auto Regressive) & MA(Moving Average). Nó có 3 hyperparameters - P(auto regressive lags),d(order of differentiation),Q(moving avg.) tương ứng xuất phát từ các thành phần AR, I & MA. Phần AR là mối tương quan giữa các khoảng thời gian trước và hiện tại. Để làm giảm noise, phần MA được sử dụng. Phần I liên kết các phần AR & MA với nhau.
+
+**9. Làm thế nào để tìm giá trị P & Q cho ARIMA?**
++ Chúng tôi cần trợ giúp về các sơ đồ ACF(Auto Correlation Function) & PACF(Partial Auto Correlation Function). Đồ thị ACF & PACF được sử dụng để tìm giá trị P & Q cho ARIMA. Chúng ta cần kiểm tra xem giá trị nào trong trục x, đường biểu đồ giảm xuống 0 trong trục y lần đầu tiên.
+    + Từ PACF(tại y=0), lấy P.
+    + Từ ACF(tại y=0), lấy Q.
+ 
+**10. Thử nghiệm ADCF là gì?**
++ Trong thống kê và kinh tế lượng, augmented Dickey–Fuller test (ADF) kiểm tra giả thuyết khống (null hypothesis) rằng một nghiệm đơn vị có mặt trong một mẫu chuỗi thời gian. Giả thuyết thay thế là khác nhau tùy thuộc vào phiên bản thử nghiệm nào được sử dụng, nhưng thường là trạng thái dừng hoặc trạng thái dừng theo xu hướng. Đây là một phiên bản mở rộng của phép thử Dickey–Fuller cho một tập hợp các mô hình chuỗi thời gian lớn hơn và phức tạp hơn.
+
+Thống kê Augmented Dickey–Fuller (ADF) được sử dụng trong thử nghiệm, là một số âm. Nó càng phủ định, thì sự bác bỏ giả thuyết rằng có một nghiệm đơn vị ở một mức độ tin cậy nào đó càng mạnh mẽ.
+
+p-value (0<=p<=1) phải càng thấp càng tốt. Các giá trị tới hạn ở các khoảng tin cậy khác nhau phải gần với giá trị Test statistics.
