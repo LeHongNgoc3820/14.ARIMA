@@ -1,10 +1,10 @@
-# <p style="padding:20px;background-color:#ffe7a0;margin:0;color:(0,0,0);font-family:newtimeroman;font-size:150%;text-align:center;border-radius: 20px;overflow:hidden;font-weight:900">ARIMA MODEL</p>
+# ARIMA MODEL
 
-[**Chi tiết bài viết**]()
+[**Chi tiết bài viết**](https://github.com/LeHongNgoc3820/14.ARIMA/blob/main/Forecasting%20Air%20Passengers%20with%20AIRIMA.ipynb)
 
 **Dưới đây là nội dung tóm tắt**
 
-## <p style="padding:5px;background-color:#034235;margin:0;color:#ffe7a0;font-family:newtimeroman;font-size:150%;text-align:center;border-radius: 20px;overflow:hidden;font-weight:900">AN INTRODUCTION TO ARIMA MODEL THEORY</p>
+## AN INTRODUCTION TO ARIMA MODEL THEORY
 
 <a class="anchor" id="0.1"></a>
 ### Table of Contents
