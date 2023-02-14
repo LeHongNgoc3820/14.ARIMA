@@ -187,7 +187,7 @@ Như vậy về tổng quát thì ARIMA là mô hình kết hợp của 2 quá t
 Trong python, có thể trình bày nhanh cả 2 đồ thị ACF và PACF bằng cách dùng package `plot_acf`, `plot_pacf`. Để sử dụng được các package đó, ta cần import vào thư viện như sau:`from statsmodels.graphics.tsaplots import plot_acf, plot_pacf`.
 
 ### 2.5 Giới thiệu phương pháp auto ARIMA <a class="anchor" id="2.5"></a>
-Chúng ta thấy rằng việc lựa chọn mô hình tốt nhất chỉ đơn thuần dựa trên chỉ số AIC, khá đơn giản. Do đó, chúng ta hoàn toàn có thể tự động thực hiện quy trình này. Trên Python đã hỗ trợ tìm kiếm mô hình ARIMA phù hợp thông qua package `auto arima`. Chúng hoạt động như một grid search mà tham số chúng ta truyền vào chỉ là có hệ số giới hạn trên của các bậc (p, d, q). Mọi việc còn lại hãy để thuật toán tự giải quyế.
+Chúng ta thấy rằng việc lựa chọn mô hình tốt nhất chỉ đơn thuần dựa trên chỉ số AIC, khá đơn giản. Do đó, chúng ta hoàn toàn có thể tự động thực hiện quy trình này. Trên Python đã hỗ trợ tìm kiếm mô hình ARIMA phù hợp thông qua package `auto arima`. Chúng hoạt động như một grid search mà tham số chúng ta truyền vào chỉ là có hệ số giới hạn trên của các bậc (p, d, q). Mọi việc còn lại hãy để thuật toán tự giải quyết.
 
 Cài đặt thư viện: `pip install pmdarima`
 
